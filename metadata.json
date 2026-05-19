@@ -1,0 +1,5 @@
+{
+  "name": "Smart Laundry Service",
+  "description": "A modern, high-conversion landing page for a laundry and dry cleaning service featuring dynamic pricing and live availability.",
+  "requestFramePermissions": ["geolocation"]
+}

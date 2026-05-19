@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-laundry-dev-db96c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::939883130946:role/amplify-laundry-dev-db96c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::939883130946:role/amplify-laundry-dev-db96c-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-laundry-dev-db96c-deployment",
+      "UnauthRoleName": "amplify-laundry-dev-db96c-unauthRole",
+      "StackName": "amplify-laundry-dev-db96c",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:939883130946:stack/amplify-laundry-dev-db96c/7a173a50-1793-11f1-9ceb-02e548a949a5",
+      "AmplifyAppId": "d3tpq8zbbhr4hp"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3tpq8zbbhr4hp",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
