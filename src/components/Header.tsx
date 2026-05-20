@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Menu, X } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -14,6 +15,7 @@ interface Props {
 
 export default function Header({ onBook }: Props) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isCommercial = location.pathname === '/commercial';
 
@@ -24,6 +26,11 @@ export default function Header({ onBook }: Props) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <motion.header
@@ -62,7 +69,7 @@ export default function Header({ onBook }: Props) {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center space-x-4 z-10">
+          <div className="flex items-center space-x-2 sm:space-x-4 z-10">
             <Link
               to="/commercial"
               className={`hidden lg:block font-semibold text-sm transition-colors py-2 px-4 border rounded-full backdrop-blur-md ${isCommercial && !isScrolled
@@ -74,12 +81,45 @@ export default function Header({ onBook }: Props) {
             </Link>
             <button
               onClick={(e) => { e.preventDefault(); onBook && onBook(); }}
-              className="bg-[#2563EB] hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-full transition-colors text-sm shadow-sm cursor-pointer"
+              className="bg-[#2563EB] hover:bg-blue-700 text-white font-bold py-2.5 px-4 sm:px-6 rounded-full transition-colors text-sm shadow-sm cursor-pointer whitespace-nowrap"
             >
               Book Now
             </button>
+            
+            {/* Mobile Menu Toggle Button */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`md:hidden p-2 rounded-full transition-colors ${isCommercial && !isScrolled ? 'text-white hover:bg-white/10' : 'text-slate-900 hover:bg-slate-100'}`}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute top-full left-0 right-0 mt-2 mx-4 bg-white shadow-xl border border-slate-100 rounded-2xl md:hidden z-40 overflow-hidden"
+          >
+            <nav className="p-4">
+              <ul className="flex flex-col space-y-2 text-base font-semibold">
+                <li><Link to="/" className="block px-4 py-3 text-slate-800 hover:text-[#0044FF] hover:bg-slate-50 rounded-xl transition-colors">Home</Link></li>
+                <li><Link to="/about" className="block px-4 py-3 text-slate-800 hover:text-[#0044FF] hover:bg-slate-50 rounded-xl transition-colors">About</Link></li>
+                <li><Link to="/prices" className="block px-4 py-3 text-slate-800 hover:text-[#0044FF] hover:bg-slate-50 rounded-xl transition-colors">Prices</Link></li>
+                <li><Link to="/services" className="block px-4 py-3 text-slate-800 hover:text-[#0044FF] hover:bg-slate-50 rounded-xl transition-colors">Services</Link></li>
+                <li><Link to="/contact" className="block px-4 py-3 text-slate-800 hover:text-[#0044FF] hover:bg-slate-50 rounded-xl transition-colors">Contact</Link></li>
+                <li className="pt-4 mt-2 border-t border-slate-100">
+                  <Link to="/commercial" className="block px-4 py-3 text-slate-600 hover:text-[#0044FF] hover:bg-slate-50 rounded-xl transition-colors">
+                    Business or Airbnb Owner?
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </motion.div>
+        )}
       </div>
     </motion.header>
   );
