@@ -49,15 +49,15 @@ export default function WhyUs() {
               className="relative overflow-hidden bg-[#F8FAFC] border border-slate-100 rounded-[2.5rem] flex flex-col md:flex-row group hover:shadow-2xl hover:shadow-[#0044FF]/10 transition-shadow"
             >
               {/* Text / Overlay Container */}
-              <div className="relative z-10 flex flex-col justify-between w-full md:w-[55%] p-8 md:p-10 order-2 md:order-1 min-h-[200px] md:min-h-[300px]">
-                <div>
-                  <ArrowRight className="w-6 h-6 text-[#0044FF] group-hover:translate-x-2 transition-all duration-300" />
-                </div>
-
-                <div className="mt-8 md:mt-auto md:pt-16">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">
+              <div className="relative z-10 flex flex-col justify-center w-full md:w-[55%] p-8 md:p-10 order-2 md:order-1 min-h-[200px] md:min-h-[300px]">
+                <div className="flex items-start gap-3 mb-3">
+                  <ArrowRight className="w-6 h-6 text-[#0044FF] group-hover:translate-x-2 transition-transform duration-300 mt-1 flex-shrink-0" />
+                  <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
                     {feature.title}
                   </h3>
+                </div>
+
+                <div className="mt-2">
                   <p className="text-slate-700 font-medium leading-relaxed text-sm">
                     {feature.description}
                   </p>
