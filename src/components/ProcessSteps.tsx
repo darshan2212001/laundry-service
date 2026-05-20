@@ -47,18 +47,18 @@ export default function ProcessSteps() {
               className="relative overflow-hidden bg-[#F8FAFC] border border-slate-100 rounded-[2.5rem] flex flex-col md:flex-row group hover:shadow-2xl hover:shadow-[#0044FF]/10 transition-shadow"
             >
               {/* Content Overlay */}
-              <div className="relative z-10 flex flex-col justify-center w-full md:w-[40%] p-8 md:p-10 order-2 md:order-1 min-h-[220px] md:min-h-[380px]">
+              <div className="relative z-10 flex flex-col justify-center w-full md:w-full p-8 md:p-10 order-2 md:order-1 min-h-[220px] md:min-h-[380px]">
                 {/* Top Section: Arrow & Headline */}
-                <div className="flex items-start gap-4 mb-3">
+                <div className="flex items-start gap-4 mb-3 w-[85%] md:w-[45%]">
                   <ArrowRight className="w-6 h-6 text-[#0044FF] group-hover:translate-x-2 transition-transform duration-300 mt-1 flex-shrink-0" />
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] relative z-10">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Bottom Section: Description */}
-                <div className="mt-2">
-                  <p className="text-slate-700 font-medium leading-relaxed text-sm">
+                <div className="mt-2 w-[85%] md:w-[40%]">
+                  <p className="text-slate-700 font-medium leading-relaxed text-sm relative z-10">
                     {step.description}
                   </p>
                 </div>
