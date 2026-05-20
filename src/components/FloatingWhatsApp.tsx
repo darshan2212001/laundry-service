@@ -9,15 +9,15 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 export default function FloatingWhatsApp() {
   return (
     <a 
-      href="https://wa.me/442034326444" 
+      href="https://whatsapp.com/" 
       target="_blank" 
       rel="noopener noreferrer" 
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center group"
-      aria-label="Contact us on WhatsApp"
+      aria-label="Open WhatsApp"
     >
       <WhatsAppIcon className="w-7 h-7" />
       <span className="absolute right-full mr-4 bg-white text-slate-800 text-sm font-semibold py-2 px-4 rounded-xl shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-        020 3432 6444
+        WhatsApp
       </span>
     </a>
   );
