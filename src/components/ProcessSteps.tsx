@@ -44,33 +44,33 @@ export default function ProcessSteps() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
-              className="relative overflow-hidden bg-[#F8FAFC] border border-slate-100 rounded-[2.5rem] p-8 md:p-10 min-h-[380px] flex flex-col group hover:shadow-2xl hover:shadow-[#0044FF]/10 transition-shadow"
+              className="relative overflow-hidden bg-[#F8FAFC] border border-slate-100 rounded-[2.5rem] flex flex-col md:flex-row group hover:shadow-2xl hover:shadow-[#0044FF]/10 transition-shadow"
             >
-              {/* Image Background */}
-              <div className="absolute top-0 right-0 bottom-0 w-[55%] md:w-[60%] z-0 overflow-hidden rounded-r-[2.5rem]">
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  className="w-full h-full object-cover object-center opacity-100 group-hover:scale-105 transition-all duration-700"
-                />
-              </div>
-
               {/* Content Overlay */}
-              <div className="relative z-10 flex flex-col h-full justify-between w-full">
+              <div className="relative z-10 flex flex-col justify-between w-full md:w-[40%] p-8 md:p-10 order-2 md:order-1 min-h-[220px] md:min-h-[380px]">
                 {/* Top Section: Arrow & Headline */}
                 <div className="flex items-start gap-4">
                   <ArrowRight className="w-6 h-6 text-[#0044FF] group-hover:translate-x-2 transition-transform duration-300 mt-1 flex-shrink-0" />
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight drop-shadow-[0_0_12px_rgba(255,255,255,0.9)] w-[85%] relative z-10 leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Bottom Section: Description */}
-                <div className="mt-auto pt-20">
-                  <p className="text-slate-700 font-medium leading-relaxed drop-shadow-sm text-sm w-[45%] md:w-[40%] relative z-10">
+                <div className="mt-8 md:mt-auto md:pt-20">
+                  <p className="text-slate-700 font-medium leading-relaxed text-sm">
                     {step.description}
                   </p>
                 </div>
+              </div>
+
+              {/* Image Container */}
+              <div className="w-full h-[250px] md:h-auto md:w-[60%] md:absolute md:top-0 md:right-0 md:bottom-0 z-0 overflow-hidden order-1 md:order-2">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="w-full h-full object-cover object-center opacity-100 group-hover:scale-105 transition-all duration-700"
+                />
               </div>
             </motion.div>
           ))}

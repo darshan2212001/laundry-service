@@ -46,31 +46,31 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="relative overflow-hidden bg-[#F8FAFC] border border-slate-100 rounded-[2.5rem] p-8 md:p-10 min-h-[300px] flex flex-col group hover:shadow-2xl hover:shadow-[#0044FF]/10 transition-shadow"
+              className="relative overflow-hidden bg-[#F8FAFC] border border-slate-100 rounded-[2.5rem] flex flex-col md:flex-row group hover:shadow-2xl hover:shadow-[#0044FF]/10 transition-shadow"
             >
-              {/* Image Background Element Container */}
-              <div className="absolute top-0 right-0 bottom-0 w-[200%] md:w-[45%] z-0 overflow-hidden rounded-r-[2.5rem]">
+              {/* Text / Overlay Container */}
+              <div className="relative z-10 flex flex-col justify-between w-full md:w-[55%] p-8 md:p-10 order-2 md:order-1 min-h-[200px] md:min-h-[300px]">
+                <div>
+                  <ArrowRight className="w-6 h-6 text-[#0044FF] group-hover:translate-x-2 transition-all duration-300" />
+                </div>
+
+                <div className="mt-8 md:mt-auto md:pt-16">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-700 font-medium leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Image Container */}
+              <div className="w-full h-[250px] md:h-auto md:w-[45%] md:absolute md:top-0 md:right-0 md:bottom-0 z-0 overflow-hidden order-1 md:order-2">
                 <img
                   src={feature.image}
                   alt={feature.title}
                   className="w-full h-full object-cover object-center opacity-100 group-hover:scale-105 transition-all duration-700"
                 />
-              </div>
-
-              {/* Text / Overlay Container (restricted width to preserve horizontal layout) */}
-              <div className="relative z-10 flex flex-col h-full justify-between w-[55%] pr-4 md:pr-6">
-                <div>
-                  <ArrowRight className="w-6 h-6 text-[#0044FF] group-hover:translate-x-2 transition-all duration-300" />
-                </div>
-
-                <div className="mt-auto pt-16">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight drop-shadow-sm">
-                    {feature.title}
-                  </h3>
-                  <p className="text-slate-700 font-medium leading-relaxed text-sm drop-shadow-sm">
-                    {feature.description}
-                  </p>
-                </div>
               </div>
             </motion.div>
           ))}
